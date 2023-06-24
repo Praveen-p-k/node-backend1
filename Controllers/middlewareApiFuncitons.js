@@ -2,7 +2,9 @@ const DBManage = require('../DB-Management/CRUD');
 const { throwDataBase, addUserToDB, getDatasFromDB } = require('../DB-Management/CRUD')
 
 const submit = async (req, res) => {
+  console.log('req: ', req.body);
   const database = await throwDataBase();
+  console.log('db: ', database);
   const { firstName, lastName, email, password, age } = req.body;
   const collection = database.collection('users');
   const user = {
